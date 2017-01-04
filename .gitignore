@@ -1,0 +1,4 @@
+*.pyc
+
+directory-watcher/conf/profiles.yaml
+directory-watcher/conf/directories.yaml

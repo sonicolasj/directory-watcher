@@ -1,0 +1,6 @@
+# - directory_path: str # Absolute path to watched directory
+#   rules_profile: str - optional # Name of a profile defined in profiles.yaml
+#   rules: # Array of rules
+#   - destination_folder: str # Absolute path to the destination folder
+#     ignore_hidden: bool # Does the rule ignore hidden files (default no)
+#     extensions: list(str) # Array of extensions matching the files
