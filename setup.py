@@ -20,10 +20,10 @@ print("\t- " + conf_path)
 
 print("Copying configuration files...")
 
-# copy(join(conf_path, "profiles.yaml.dist"), join(conf_path, "profiles.yaml"))
+copy(join(conf_path, "profiles.yaml.dist"), join(conf_path, "profiles.yaml"))
 print("\t- profiles.yaml")
 
-# copy(join(conf_path, "directories.yaml.dist"), join(conf_path, "directories.yaml"))
+copy(join(conf_path, "directories.yaml.dist"), join(conf_path, "directories.yaml"))
 print("\t- directories.yaml")
 
 print("Access rights management...")
@@ -37,10 +37,12 @@ arguments = " >> {0} 2>> {1}".format(
 )
 print("\t- " + arguments)
 
-# Put on a cron to execute on each minute
+print("Adding Directory Watcher to cron...")
 cron = CronTab(user=True)
 
+print("\t- Job creation")
 job = cron.new(command=watcher_path + arguments, comment="Directory Watcher")
 job.setall("* * * * *")
 
-# cron.write()
+print("\t- Writing changes")
+cron.write()
